@@ -1,0 +1,79 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 3,
+  "final_space": true,
+  "transient_prompt": {
+    "template": " <p:color10>❯</> ",
+    "foreground": "p:color15",
+    "background": "transparent"
+  },
+  "palette": {
+    "color10": "#ffb59d",
+    "color13": "#390c00",
+    "color15": "#f1dfda",
+    "os_bg": "#390c00",
+    "path_bg": "#ffb59d",
+    "git_bg": "#ffb86c"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "╭─",
+          "foreground": "p:color10"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "session",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "template": " {{ .UserName }} ",
+          "foreground": "p:color15",
+          "background": "p:os_bg"
+        },
+        {
+          "type": "os",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "template": " {{ .Icon }} ",
+          "foreground": "p:color15",
+          "background": "p:os_bg"
+        },
+        {
+          "type": "path",
+          "style": "diamond",
+          "trailing_diamond": "",
+          "properties": {
+            "style": "folder"
+          },
+          "template": " 󰉖 {{ .Path }} ",
+          "foreground": "p:color13",
+          "background": "p:path_bg"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "╰─❯ ",
+          "foreground": "p:color10"
+        }
+      ]
+    }
+  ]
+}

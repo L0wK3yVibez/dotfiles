@@ -1,0 +1,308 @@
+/* ============================================================================
+ * Waybar – Orange Glass Modern
+ * ========================================================================== */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  font-weight: 700;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* ============================================================================
+ * Palette
+ * ========================================================================== */
+
+@define-color accent        #ff7a00;
+@define-color accent-dark   #cc5f00;
+@define-color accent-soft   rgba(255, 122, 0, 0.18);
+
+@define-color bg-main       rgba(8, 10, 18, 0.72);
+@define-color bg-module     rgba(22, 24, 34, 0.88);
+
+@define-color border-color  rgba(255,255,255,0.08);
+
+@define-color text          #f5f5f5;
+@define-color text-muted    #8f96a3;
+
+/* ============================================================================
+ * Main Bar
+ * ========================================================================== */
+
+window#waybar {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 20, 0.82),
+    rgba(10, 12, 20, 0.68)
+  );
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  color: @text;
+
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* spacing between module groups */
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* ============================================================================
+ * Shared Module Styling
+ * ========================================================================== */
+
+#workspaces,
+#clock,
+#custom-media,
+#custom-weather,
+#custom-storage,
+#cpu,
+#memory,
+#pulseaudio,
+#idle_inhibitor,
+#tray,
+#custom-power,
+#custom-keyboard,
+#custom-updates,
+#custom-rofi,
+#custom-terminal,
+#custom-firefox {
+  background: @bg-module;
+
+  color: @text;
+
+  border: 1px solid @border-color;
+
+  border-radius: 12px;
+
+  padding: 4px 14px;
+
+  margin: 0 4px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* ============================================================================
+ * Hover Effects
+ * ========================================================================== */
+
+#custom-rofi:hover,
+#custom-terminal:hover,
+#custom-firefox:hover,
+#custom-weather:hover,
+#pulseaudio:hover,
+#custom-power:hover,
+#custom-keyboard:hover,
+#custom-updates:hover,
+#custom-media:hover,
+#cpu:hover,
+#memory:hover,
+#custom-storage:hover {
+  background: @accent-soft;
+
+  border-color: rgba(255,122,0,0.35);
+}
+
+/* ============================================================================
+ * Launcher Buttons
+ * ========================================================================== */
+
+#custom-rofi,
+#custom-terminal,
+#custom-firefox {
+  color: @accent;
+
+  min-width: 18px;
+}
+
+/* ============================================================================
+ * Workspaces
+ * ========================================================================== */
+
+#workspaces {
+  padding: 4px 6px;
+}
+
+#workspaces button {
+  color: @text-muted;
+
+  background: transparent;
+
+  margin: 2px;
+
+  padding: 2px 10px;
+
+  border-radius: 9px;
+
+  transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+  background: @accent-soft;
+
+  color: @accent;
+}
+
+#workspaces button.active {
+  background: linear-gradient(
+    135deg,
+    @accent,
+    @accent-dark
+  );
+
+  color: #111;
+
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+/* ============================================================================
+ * Clock
+ * ========================================================================== */
+
+#clock {
+  background: linear-gradient(
+    135deg,
+    @accent,
+    @accent-dark
+  );
+
+  color: #111;
+
+  font-weight: 800;
+
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* ============================================================================
+ * Media
+ * ========================================================================== */
+
+#custom-media {
+  border-left: 3px solid @accent;
+
+  padding: 6px 14px 6px 12px;
+
+  min-width: 260px;
+
+  background: rgba(22,24,34,0.92);
+
+  box-shadow:
+    inset 0 -2px rgba(255,122,0,0.25);
+
+  border-radius: 12px;
+}
+
+
+/* ============================================================================
+ * Weather
+ * ========================================================================== */
+
+#custom-weather {
+  color: #ffd27f;
+}
+
+/* ============================================================================
+ * Updates
+ * ========================================================================== */
+
+#custom-updates {
+  color: #98e07b;
+
+  border-left: 3px solid #98e07b;
+}
+
+/* ============================================================================
+ * CPU / Memory
+ * ========================================================================== */
+
+#cpu {
+  color: #ffbe6b;
+}
+
+#memory {
+  color: #d2a8ff;
+}
+
+/* ============================================================================
+ * Audio
+ * ========================================================================== */
+
+#pulseaudio {
+  color: #7dcfff;
+}
+
+/* ============================================================================
+ * Idle Inhibitor
+ * ========================================================================== */
+
+#idle_inhibitor {
+  color: #f9e2af;
+}
+
+/* ============================================================================
+ * Tray
+ * ========================================================================== */
+
+#tray {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  background: rgba(255, 0, 0, 0.2);
+}
+
+/* ============================================================================
+ * Power Button
+ * ========================================================================== */
+
+#custom-power {
+  color: #ff7b7b;
+
+  padding-right: 16px;
+}
+
+/* ============================================================================
+ * Keyboard
+ * ========================================================================== */
+
+#custom-keyboard {
+  color: #a6e3a1;
+}
+
+/* ============================================================================
+ * Tooltips
+ * ========================================================================== */
+
+tooltip {
+  background: rgba(20, 22, 30, 0.97);
+
+  border: 1px solid alpha(white, 0.08);
+
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: #f5f5f5;
+
+  padding: 4px;
+}

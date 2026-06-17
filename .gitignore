@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*~
+
+# Runtime / machine-local (keep in ~/.config, not in repo)
+opacity_state
+fish_variables
+
+# Old backups from cleanup phases
+archive/
